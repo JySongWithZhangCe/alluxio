@@ -97,6 +97,12 @@
       <type>test-jar</type>
       <scope>test</scope>
     </dependency>
+      <dependency>
+          <groupId>org.apache.ratis</groupId>
+          <artifactId>ratis-client</artifactId>
+          <version>1.0.0</version>
+          <scope>compile</scope>
+      </dependency>
   </dependencies>
 
   <build>
