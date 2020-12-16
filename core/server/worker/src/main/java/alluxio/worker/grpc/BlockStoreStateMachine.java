@@ -36,6 +36,7 @@ public class BlockStoreStateMachine extends BaseStateMachine {
 
   @Override
   public CompletableFuture<Long> write(RaftProtos.LogEntryProto entry) {
+    // 问题：此处共享writeRequest的逻辑是错误的。因为block有四个副本，每个raft member使用相同的blockId
     DataBuffer buffer = null;
     try {
       // 取出状态机数据
