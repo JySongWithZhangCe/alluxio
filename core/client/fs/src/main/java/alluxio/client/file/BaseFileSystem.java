@@ -177,6 +177,9 @@ public class BaseFileSystem implements FileSystem {
         /**
          * raft写的时候返回{@link AlluxioFileRaftOutStream}
          */
+        if (options.getUseRaftWrite()) {
+          return new AlluxioFileRaftOutStream(path, outStreamOptions, mFsContext);
+        }
         return new AlluxioFileOutStream(path, outStreamOptions, mFsContext);
       } catch (Exception e) {
         delete(path);
